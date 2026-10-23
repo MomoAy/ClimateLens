@@ -31,7 +31,7 @@ ClimateLens/
 │   ├── etl/          # Data pipeline: sources → S3 → PostgreSQL
 │   ├── indexation/   # Chunking, full-text index, embeddings
 │   ├── search/       # Keyword, semantic and hybrid search
-│   └── tools/        # Shared code (config, logging)
+│   └── core/        # Shared code (config, logging)
 ├── frontend/         # Next.js web app
 ├── ml/               # Forecasting models
 ├── .github/          # CI/CD workflows
