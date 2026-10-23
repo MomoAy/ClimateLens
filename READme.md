@@ -18,7 +18,7 @@ Team project for the Information Retrieval course at Riga Technical University (
 | Frontend | Next.js (TypeScript) |
 | Backend | Python, FastAPI |
 | Database | PostgreSQL 16 + pgvector |
-| ML | sentence-transformers |
+| ML | PyTorch (LSTM), sentence-transformers |
 | DevOps | Docker, GitHub Actions, AWS (EC2, RDS, S3, ECR) |
 
 ## Project structure
@@ -31,7 +31,7 @@ ClimateLens/
 │   ├── etl/          # Data pipeline: sources → S3 → PostgreSQL
 │   ├── indexation/   # Chunking, full-text index, embeddings
 │   ├── search/       # Keyword, semantic and hybrid search
-│   └── core/        # Shared code (config, logging)
+│   └── tools/        # Shared code (config, logging)
 ├── frontend/         # Next.js web app
 ├── ml/               # Forecasting models
 ├── .github/          # CI/CD workflows
@@ -42,4 +42,39 @@ ClimateLens/
 
 ### Prerequisites
 
-- Docker and Docker
+- Docker and Docker Compose
+- Git
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd ClimateLens
+   ```
+2. Create your environment file from the template, then fill in the values:
+   ```bash
+   cp .env.example .env
+   ```
+3. Start the database:
+   ```bash
+   docker compose up -d db
+   ```
+4. Check that it is running (status should be `healthy`):
+   ```bash
+   docker compose ps
+   ```
+
+### Services
+
+| Service | URL |
+|---|---|
+| Frontend | http://localhost:3000 |
+| API | http://localhost:8080 |
+| PostgreSQL | localhost:5432 |
+
+## Contributing
+
+- One branch per feature: `feature/<short-name>`
+- Open a pull request to `main`; at least one teammate reviews it before merging
+- Never commit `.env` or any secret
