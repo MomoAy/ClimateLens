@@ -1,0 +1,31 @@
+name: CI
+run-name: CI on {{github.ref_name}}!
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  compose:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Check out repository code
+          uses: actions/checkout@v6
+        - name: Create the .env file
+          run: cp .env.example .env
+        - name: Validate compose
+          run: docker compose config --quiet
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Check out the code
+          uses: actions/checkout@v6 
+        - name: Lint with ruff
+          uses: astral-sh/ruff-action@v4.1.0
+          with:
+            src: ./backend
+        
+    
