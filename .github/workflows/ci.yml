@@ -1,6 +1,6 @@
 name: CI
 run-name: CI on {{github.ref_name}}!
-
+# Correctly check
 on:
   push:
     branches: [main]
