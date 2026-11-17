@@ -1,2 +1,5 @@
 .env
 suivi/
+.venv/
+__pycache__/
+data/raw/
