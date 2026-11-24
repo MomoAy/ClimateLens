@@ -1,6 +1,22 @@
 import pandas as pd
 NASA_CSV_PATH = "data/raw/GLB.Ts+dSST.csv"
 
+SOURCE = {
+    "name": "NASA GISS Surface Temperature Analysis (GISTEMP v4)",
+    "url": "https://data.giss.nasa.gov/gistemp/",
+    "license": "Public domain (NASA)",
+}
+
+INDICATORS = [
+    {
+        "code": "temperature_anomaly",
+        "name": "Global surface temperature anomaly",
+        "unit": "°C",
+        "frequency": "annual",
+        "description": "Annual (Jan-Dec) global mean land-ocean surface temperature anomaly, relative to the 1951-1980 average.",
+    },
+]
+
 def extract(data_source_url):
     nasa_df = pd.read_csv(data_source_url, skiprows=1, na_values="***")
     return nasa_df

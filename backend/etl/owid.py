@@ -1,6 +1,29 @@
 import pandas as pd
 OWID_CSV_PATH = "data/raw/owid-co2-data.csv"
 
+SOURCE = {
+    "name": "Our World in Data - CO2 and Greenhouse Gas Emissions",
+    "url": "https://github.com/owid/co2-data",
+    "license": "CC BY 4.0",
+}
+
+INDICATORS = [
+    {
+        "code": "co2",
+        "name": "Annual CO2 emissions",
+        "unit": "million tonnes (Mt)",
+        "frequency": "annual",
+        "description": "Annual total emissions of carbon dioxide (CO2), excluding land-use change. Source: Global Carbon Budget.",
+    },
+    {
+        "code": "co2_per_capita",
+        "name": "CO2 emissions per capita",
+        "unit": "tonnes per person (t/person)",
+        "frequency": "annual",
+        "description": "Annual CO2 emissions from fossil fuels and industry, excluding land-use change, divided by population. Source: Global Carbon Budget.",
+    },
+]
+
 def extract(data_source_url):
     owid_df = pd.read_csv(data_source_url)
     return owid_df
