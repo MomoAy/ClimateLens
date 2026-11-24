@@ -2,4 +2,5 @@
 suivi/
 .venv/
 __pycache__/
-data/raw/
+backend/data/raw/*
+
